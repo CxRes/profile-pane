@@ -54,6 +54,10 @@ jobs:
         run: 'sed -i -E "s/(\"version\": *\"[^\"]+)/\1-${GITHUB_SHA_SHORT}/" package.json'
       - name: Disable pre- and post-publish actions
         run: 'sed -i -E "s/\"((pre|post)publish)/\"ignore:\1/" package.json'
+      - name: test node
+        run: node -v
+      - name: test npm
+        run: npm -v
   #     - uses: JS-DevTools/npm-publish@v3
   #       with:
   #         token: ${{ secrets.NPM_TOKEN }}
